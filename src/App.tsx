@@ -3,6 +3,7 @@ import ThemeProvider from '@/components/providers/ThemeProvider';
 import Home from '@/routes/Home';
 import Root from '@/routes/Root';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import CoinDetails from './routes/CoinDetails';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/coin/:uuid',
+        element: <CoinDetails />,
       },
     ],
   },

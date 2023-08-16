@@ -7,21 +7,14 @@ interface SearchProviderProps {
 
 export default function SearchProvider({ children }: SearchProviderProps) {
   const [searchString, setSearchString] = useState('');
-  const [key, setKey] = useState(0);
 
   const contextValue: ISearchContext = {
     searchString,
-    setSearchString: (newSearchString: string) => {
-      setSearchString(newSearchString);
-      setKey((prevKey) => prevKey + 1); // Update the key
-    },
+    setSearchString,
   };
 
   return (
-    <SearchContext.Provider
-      key={key}
-      value={contextValue}
-    >
+    <SearchContext.Provider value={contextValue}>
       {children}
     </SearchContext.Provider>
   );

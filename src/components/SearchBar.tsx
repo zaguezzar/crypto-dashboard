@@ -13,8 +13,8 @@ export default function SearchBar() {
     <div className='w-full flex justify-center items-center'>
       <div className='relative'>
         <Search
-          className='absolute bg-red-600 left-3 top-1/2 text-white -translate-y-1/2'
-          size={20}
+          className='absolute z-10 left-3 top-1/2 text-white -translate-y-1/2'
+          size={16}
         />
         <Input
           className='w-[400px] relative pl-10'

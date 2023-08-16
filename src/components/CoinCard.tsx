@@ -14,7 +14,7 @@ import { BadgeDelta, LineChart } from '@tremor/react';
 export default function CoinCard({ coin }: { coin: Coin }) {
   return (
     <a
-      href={`/coins/${coin.uuid}`}
+      href={`/coin/${coin.uuid}`}
       key={coin.uuid}
     >
       <Card

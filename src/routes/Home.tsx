@@ -1,7 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-
 import { getCoins } from '@/api/coins';
-
+import CoinCard from '@/components/CoinCard';
 import {
   Card,
   CardContent,
@@ -9,10 +7,9 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-
-import CoinCard from '@/components/CoinCard';
 import { useSearchContext } from '@/contexts/SearchContext';
 import { type Coin } from '@/types';
+import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -23,14 +20,15 @@ export default function Home() {
   // update the coins data when the query is successful
   useEffect(() => {
     if (query.data) {
+      let filteredCoins = query.data;
+
       if (searchString.length > 0) {
-        const filteredCoins = coinsData?.filter((coin) =>
+        filteredCoins = query.data.filter((coin) =>
           coin.name.toLowerCase().includes(searchString.toLowerCase())
         );
-        setCoinsData(filteredCoins);
-      } else {
-        setCoinsData(query.data);
       }
+
+      setCoinsData(filteredCoins);
     }
   }, [query.data, searchString]);
 
@@ -45,7 +43,8 @@ export default function Home() {
                 key={coin.uuid}
               />
             ))
-          : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((index) => (
+          : // show skeleton cards while loading
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((index) => (
               <Card
                 key={index}
                 className='cursor-pointer hover:opacity-70'
