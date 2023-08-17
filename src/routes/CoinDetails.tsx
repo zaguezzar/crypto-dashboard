@@ -1,9 +1,3 @@
-import { useParams } from 'react-router-dom';
-
-import { useQuery } from '@tanstack/react-query';
-import { LineChart } from '@tremor/react';
-import * as React from 'react';
-
 import { getCoin } from '@/api/coin';
 import {
   Card,
@@ -13,9 +7,13 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { formatData, priceFormatter } from '@/lib/utils';
+import { formatData, formatNumber, priceFormatter } from '@/lib/utils';
 import { type Coin } from '@/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import { useQuery } from '@tanstack/react-query';
+import { LineChart } from '@tremor/react';
+import * as React from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function CoinDetails() {
   const { uuid } = useParams<{ uuid: string }>();
@@ -67,6 +65,7 @@ export default function CoinDetails() {
           )}
         </CardContent>
       </Card>
+
       <Card className='w-1/3 p-6'>
         <CardHeader className='flex-row justify-between'>
           <div className='flex flex-col w-1/2'>
@@ -78,7 +77,36 @@ export default function CoinDetails() {
             <AvatarFallback>{coinData?.symbol}</AvatarFallback>
           </Avatar>
         </CardHeader>
-        <CardContent></CardContent>
+        <CardContent>
+          <ul className=''>
+            <li>
+              <span className='text-muted-foreground'>Rank:</span>{' '}
+              <span className='font-bold'>{coinData?.rank}</span>
+            </li>
+            <li>
+              <span className='text-muted-foreground'>Current price:</span>{' '}
+              <span className='font-bold'>
+                ${formatNumber(coinData?.price, 4)}
+              </span>
+            </li>
+            <li>
+              <span className='text-muted-foreground'>Listings:</span>{' '}
+              <span className='font-bold'>
+                {formatNumber(coinData?.listedAt)}
+              </span>
+            </li>
+            <li>
+              <span className='text-muted-foreground'>Market cap:</span>{' '}
+              <span className='font-bold'>
+                {formatNumber(coinData?.marketCap)}
+              </span>
+            </li>
+            <li>
+              <span className='text-muted-foreground'>Change:</span>{' '}
+              <span className='font-bold'>{coinData?.change}%</span>
+            </li>
+          </ul>
+        </CardContent>
       </Card>
     </div>
   );
