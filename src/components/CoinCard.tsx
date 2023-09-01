@@ -22,8 +22,8 @@ export default function CoinCard({ coin }: { coin: Coin }) {
         className='cursor-pointer opacity-80 hover:opacity-100 hover:shadow-lg'
         // onClick={() => router.push(`/coins/${coin.uuid}`)}
       >
-        <CardHeader className='flex-row items-center justify-between'>
-          <div className='flex flex-col'>
+        <CardHeader className='flex-row justify-between'>
+          <div className='flex flex-col w-3/4'>
             <CardTitle>{coin.name}</CardTitle>
             <CardDescription>{coin.symbol}</CardDescription>
           </div>

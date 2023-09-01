@@ -10,7 +10,7 @@ export default function Logo(props: LucideProps) {
 
   return (
     <div
-      className='flex items-center gap-x-2 cursor-pointer'
+      className='flex items-center gap-x-2 cursor-pointer hover:text-primary'
       onClick={handleClick}
     >
       <svg

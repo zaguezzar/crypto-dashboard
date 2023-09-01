@@ -37,7 +37,10 @@ export function formatData<T>(
   switch (type) {
     case 'price':
       return array.map((item, index) => ({
-        key: ((index + 1 + localHour) % 24) + ':00',
+        key:
+          (index + 1 + localHour) % 24 < 9
+            ? '0' + ((index + 1 + localHour) % 24) + ':00'
+            : ((index + 1 + localHour) % 24) + ':00',
         'Historic price': item,
         'Current price': lastValue,
       }));
@@ -62,7 +65,7 @@ export function axislessPriceFormatter(
 export function priceFormatter(num: number): string {
   const rounded = Math.round(num * 100000) / 100000;
 
-  return `${rounded}`;
+  return `$ ${rounded}`;
 }
 
 // millify a number
