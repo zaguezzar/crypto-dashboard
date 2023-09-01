@@ -1,5 +1,6 @@
 import { getCoins } from '@/api/coins';
 import CoinCard from '@/components/CoinCard';
+import ErrorAlert from '@/components/ErrorAlert';
 import {
   Card,
   CardContent,
@@ -66,6 +67,9 @@ export default function Home() {
               </Card>
             ))}
       </div>
+      {query.isError && (
+        <ErrorAlert error='There was an error while fetching the data. Please try again later.' />
+      )}
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Root() {
   return (
     <SearchContextProvider>
       <Navbar />
-      <main className='px-24 py-12'>
+      <main className='px-24 pt-24 pb-12'>
         <Outlet />
       </main>
       <TailwindIndicator />

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 import { Coin } from '@/types';
 
@@ -25,6 +25,6 @@ export const getCoins = async (): Promise<Coin[] | undefined> => {
     const response = await axios.request(options);
     return response.data.data.coins;
   } catch (error) {
-    console.error(error);
+    console.error(error as AxiosError);
   }
 };
