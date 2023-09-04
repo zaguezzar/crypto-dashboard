@@ -8,6 +8,7 @@ export default function Navbar() {
     <nav className='px-24 py-8 flex justify-between items-center'>
       <Logo />
       <SearchBar />
+      {/* buttons & links */}
       <div className='flex gap-x-4 items-center'>
         <ColorModeButton />
         <a href='https://www.github.com'>

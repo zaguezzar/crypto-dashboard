@@ -1,3 +1,4 @@
+// indicator to show the current screen size (tailwind breakpoints)
 export function TailwindIndicator() {
   if (process.env.NODE_ENV === 'production') return null;
 

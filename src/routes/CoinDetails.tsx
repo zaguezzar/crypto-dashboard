@@ -86,6 +86,7 @@ export default function CoinDetails() {
               <AvatarFallback>{coinData?.symbol}</AvatarFallback>
             </Avatar>
           </CardHeader>
+
           <CardContent>
             <ul className='space-y-1'>
               <li className='flex justify-between'>
@@ -136,6 +137,7 @@ export default function CoinDetails() {
           <CardHeader>
             <CardTitle>Description</CardTitle>
           </CardHeader>
+
           <CardContent className='text-muted-foreground'>
             <span>{coinData?.description}</span>
             <br />

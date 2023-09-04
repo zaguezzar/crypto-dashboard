@@ -32,6 +32,7 @@ export default function CoinCard({ coin }: { coin: Coin }) {
             <AvatarFallback>{coin.symbol}</AvatarFallback>
           </Avatar>
         </CardHeader>
+
         <CardContent>
           <LineChart
             className='mt-6 max-h-48'
@@ -55,6 +56,7 @@ export default function CoinCard({ coin }: { coin: Coin }) {
             curveType='natural'
           />
         </CardContent>
+
         <CardFooter className='flex-row justify-between'>
           {/* coin price */}
           <div className='items-baseline flex'>
