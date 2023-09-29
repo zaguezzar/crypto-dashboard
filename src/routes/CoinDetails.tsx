@@ -41,17 +41,16 @@ export default function CoinDetails() {
     setCoinData(undefined);
     if (query.data) {
       setCoinData(query.data);
-      console.log(query.data);
     }
   }, [query.data, uuid]);
 
   return (
-    <div className='flex gap-x-4'>
-      <Card className='w-2/3 pr-[50px]'>
-        <CardContent>
+    <div className='flex flex-col gap-x-4 gap-y-4 lg:flex-row'>
+      <Card className='w-full lg:w-2/3'>
+        <CardContent className='pl-0 pr-[40px] md:pr-[50px]'>
           {query.isSuccess && coinData ? (
             <LineChart
-              className='mt-6 h-[600px]'
+              className='mt-6 h-[300px] md:h-[600px]'
               data={formatData(coinData?.sparkline, 'price')}
               index='key'
               categories={['Historic price']}
@@ -69,12 +68,12 @@ export default function CoinDetails() {
               yAxisWidth={100}
             />
           ) : (
-            <Skeleton className='mt-6 h-[600px]' />
+            <Skeleton className='mt-6 h-[300px] lg:h-[600px]' />
           )}
         </CardContent>
       </Card>
 
-      <div className='w-1/3 flex flex-col gap-y-4'>
+      <div className='w-full lg:w-1/3 flex flex-col gap-y-4'>
         <Card className='p-2 grow-0'>
           <CardHeader className='flex-row justify-between p-6'>
             <div className='flex flex-col w-1/2'>

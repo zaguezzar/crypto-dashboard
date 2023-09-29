@@ -20,7 +20,6 @@ export default function CoinCard({ coin }: { coin: Coin }) {
       <Card
         key={coin.uuid}
         className='cursor-pointer opacity-80 hover:opacity-100 hover:shadow-lg'
-        // onClick={() => router.push(`/coins/${coin.uuid}`)}
       >
         <CardHeader className='flex-row justify-between'>
           <div className='flex flex-col w-3/4'>
@@ -35,7 +34,7 @@ export default function CoinCard({ coin }: { coin: Coin }) {
 
         <CardContent>
           <LineChart
-            className='mt-6 max-h-48'
+            className='mt-6 max-h-24 xl:max-h-48'
             data={formatData(coin.sparkline, 'price', coin.price)}
             index='key'
             categories={['Historic price']}

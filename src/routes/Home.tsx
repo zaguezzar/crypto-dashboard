@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className='flex flex-col w-full'>
       {/* card grid */}
-      <div className='grid grid-cols-4 gap-2 w-full'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 w-full'>
         {query.isSuccess
           ? coinsData?.map((coin) => (
               <CoinCard
@@ -58,7 +58,7 @@ export default function Home() {
                   <Skeleton className='w-8 h-8 rounded-full' />
                 </CardHeader>
                 <CardContent>
-                  <div className='h-48'></div>
+                  <div className='h-28 md:h-36 lg:h-48'></div>
                 </CardContent>
                 <CardFooter className='flex-row justify-between'>
                   <Skeleton className='h-4 w-[100px]' />

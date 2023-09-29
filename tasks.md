@@ -1,0 +1,3 @@
+- fix responsive layout
+- fix the scrolling 
+- add more content if possible
